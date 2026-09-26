@@ -38,7 +38,7 @@ A dark, no-nonsense gym companion built with Next.js. Pick a lift, lock it into 
 ## 🚀 Run Locally
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/fitlog.git
+git clone https://github.com/Adil-Uzzaman-Adil/fitlog.git
 cd fitlog
 npm install
 npm run dev
@@ -63,8 +63,8 @@ Optimized for mobile (375px), tablet (768px), and desktop (1440px+).
 
 ## 👤 Author
 
-**Your Name**  
-GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+Adil Uzzaman Adil 
+GitHub: https://github.com/Adil-Uzzaman-Adil
 
 ---
 
