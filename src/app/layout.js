@@ -1,7 +1,6 @@
 import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "react-hot-toast";
-import { FitLogProvider } from "@/context/FitLogContext";
+import Providers from "@/components/Providers";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -28,22 +27,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${oswald.variable}`}>
       <body className="bg-bg text-text min-h-screen flex flex-col">
-        <FitLogProvider>
+        <Providers>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
-          <Toaster
-            position="top-right"
-            toastOptions={{
-              style: {
-                background: "#141414",
-                color: "#f5f5f5",
-                border: "1px solid #262626",
-              },
-              success: { iconTheme: { primary: "#ccff00", secondary: "#0a0a0a" } },
-            }}
-          />
-        </FitLogProvider>
+        </Providers>
       </body>
     </html>
   );
