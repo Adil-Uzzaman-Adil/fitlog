@@ -1,40 +1,73 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏋️ FitLog — Workout Library
 
-## Getting Started
+A dark, no-nonsense gym companion built with Next.js. Pick a lift, lock it into today's plan, and watch the week's work add up. Browse 12 curated workouts, view detailed instructions, save favorites, and track your daily minutes and calories in real time.
 
-First, run the development server:
+**🔗 Live Demo:** [https://your-vercel-url.vercel.app](https://your-vercel-url.vercel.app)  
+**📦 Repository:** [https://github.com/YOUR_USERNAME/fitlog](https://github.com/YOUR_USERNAME/fitlog)
+
+---
+
+## 🛠️ Technologies Used
+
+- **Next.js 15** (App Router) — React framework & routing
+- **React 19** — UI library
+- **Tailwind CSS** — Styling & responsive design
+- **React Context API** — Global state management
+- **localStorage** — Persist plan & saved data across reloads
+- **react-hot-toast** — Toast notifications
+- **react-icons** — Icon library
+- **Google Fonts (Oswald + Inter)** — Typography
+- **Vercel** — Deployment
+
+---
+
+## ✨ Key Features
+
+1. **🗂️ Workout Library** — Browse 12 lifts in a responsive 3-column grid with images, muscle-group tags, equipment, and stats (duration / calories / rating). Includes live search and sort by duration, calories, or rating.
+
+2. **📋 Workout Details Page** — Full breakdown of each lift: large image, description, complete specs table (equipment, difficulty, sets, reps, duration, calories, rating), and a numbered step-by-step instruction list.
+
+3. **📅 Today's Plan** — Add any workout to your daily plan (capped at 5 lifts). Mark lifts as done, remove them, and watch live metrics — exercises, minutes, and calories — update instantly.
+
+4. **🔖 Save for Later** — Bookmark workouts in a separate "Saved" tab. Manage your list, view details, or remove them anytime.
+
+5. **💾 Persistent Data + Toast Feedback** — Your plan and saved workouts survive page reloads via localStorage. Every action (add, remove, save, mark done) gives instant visual feedback with a toast notification.
+
+---
+
+## 🚀 Run Locally
 
 ```bash
+git clone https://github.com/YOUR_USERNAME/fitlog.git
+cd fitlog
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌐 API
 
-## Learn More
+- **All workouts:** `GET https://api.abcz.workers.dev/api/fitlog`
+- **Single workout:** `GET https://api.abcz.workers.dev/api/fitlog/:id`
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📱 Responsive
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Optimized for mobile (375px), tablet (768px), and desktop (1440px+).
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 👤 Author
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# fitlog
->>>>>>> f3356d8fe12ca74cb0a28ddf7c1d67fbdd70c49c
+**Your Name**  
+GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+
+---
+
+## 📄 License
+
+MIT License — free to use and modify.
