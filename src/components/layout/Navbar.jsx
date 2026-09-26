@@ -6,7 +6,7 @@ import { useFitLog } from "@/context/FitLogContext";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { plan, saved } = useFitLog();
+  const { plan = [], saved = [] } = useFitLog();
 
   const link = (href, label) => {
     const active = pathname === href;
@@ -49,13 +49,13 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/my-plan"
-            className="px-3 py-1.5 rounded-full bg-accent text-bg text-xs font-bold tracking-wide"
+            className="px-3 py-1.5 rounded-full bg-accent text-bg text-xs font-bold tracking-wide hover:opacity-90 transition"
           >
             PLAN {plan.length}
           </Link>
           <Link
             href="/my-plan"
-            className="px-3 py-1.5 rounded-full border border-border text-xs font-bold tracking-wide text-text"
+            className="px-3 py-1.5 rounded-full border border-border text-xs font-bold tracking-wide text-text hover:border-accent transition"
           >
             SAVED {saved.length}
           </Link>
@@ -70,4 +70,3 @@ export default function Navbar() {
     </header>
   );
 }
-

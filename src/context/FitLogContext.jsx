@@ -9,7 +9,6 @@ export function FitLogProvider({ children }) {
   const [saved, setSaved] = useState([]);
   const [hydrated, setHydrated] = useState(false);
 
-  // Load from localStorage on mount
   useEffect(() => {
     try {
       const p = JSON.parse(localStorage.getItem("fitlog_plan") || "[]");
@@ -22,7 +21,6 @@ export function FitLogProvider({ children }) {
     setHydrated(true);
   }, []);
 
-  // Persist
   useEffect(() => {
     if (!hydrated) return;
     localStorage.setItem("fitlog_plan", JSON.stringify(plan));
@@ -62,7 +60,6 @@ export function FitLogProvider({ children }) {
     return true;
   };
 
-  // Metrics — uses caloriesBurned now
   const metrics = {
     exercises: plan.length,
     minutes: plan.reduce((sum, w) => sum + (Number(w.duration) || 0), 0),
@@ -96,3 +93,4 @@ export function useFitLog() {
   if (!ctx) throw new Error("useFitLog must be used within FitLogProvider");
   return ctx;
 }
+
