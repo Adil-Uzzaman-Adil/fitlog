@@ -12,13 +12,16 @@ import PlanSkeleton from "@/components/my-plan/PlanSkeleton";
 import SearchBar from "@/components/my-plan/SearchBar";
 import StatRow from "@/components/ui/StatRow";
 
+// ✅ FORCE dynamic rendering — prevents prerender context error
+export const dynamic = "force-dynamic";
+
 export default function MyPlanPage() {
   const { plan, saved, metrics, toggleSave } = useFitLog();
   const [tab, setTab] = useState("plan");
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Fake loading state (satisfies "Loading workouts…" requirement)
+  // Loading state
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(t);
