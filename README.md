@@ -2,9 +2,8 @@
 
 A dark, no-nonsense gym companion built with Next.js. Pick a lift, lock it into today's plan, and watch the week's work add up. Browse 12 curated workouts, view detailed instructions, save favorites, and track your daily minutes and calories in real time.
 
-**🔗 Live Demo:** [https://your-vercel-url.vercel.app](https://your-vercel-url.vercel.app)  
-**📦 Repository:** [https://github.com/YOUR_USERNAME/fitlog](https://github.com/YOUR_USERNAME/fitlog)
-
+**🔗 Live Demo:** https://fitlog-mu-blush.vercel.app/  
+**📦 Repository:** https://github.com/Adil-Uzzaman-Adil/fitlog.git
 ---
 
 ## 🛠️ Technologies Used
