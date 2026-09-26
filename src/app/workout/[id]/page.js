@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getWorkoutById } from "@/lib/api";
 import TagPill from "@/components/ui/TagPill";
@@ -15,17 +14,15 @@ export default async function WorkoutDetailPage({ params }) {
   } catch {
     notFound();
   }
-  if (!workout) notFound();
+  if (!workout || workout.error) notFound();
 
-  const categories = Array.isArray(workout.category)
-    ? workout.category
-    : [workout.category].filter(Boolean);
+  const categories = Array.isArray(workout.muscleGroups)
+    ? workout.muscleGroups
+    : [];
 
   const instructions = Array.isArray(workout.instructions)
     ? workout.instructions
-    : typeof workout.instructions === "string"
-      ? workout.instructions.split("\n").filter(Boolean)
-      : [];
+    : [];
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">

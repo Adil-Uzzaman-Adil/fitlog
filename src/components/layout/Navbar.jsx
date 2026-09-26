@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiZap } from "react-icons/fi";
 import { useFitLog } from "@/context/FitLogContext";
 
 export default function Navbar() {
@@ -15,9 +14,7 @@ export default function Navbar() {
       <Link
         href={href}
         className={`px-4 py-2 text-sm font-medium tracking-wide uppercase transition rounded-md ${
-          active
-            ? "text-accent"
-            : "text-muted hover:text-text"
+          active ? "text-accent" : "text-muted hover:text-text"
         }`}
       >
         {label}
@@ -30,9 +27,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="w-8 h-8 rounded-md bg-accent text-bg flex items-center justify-center">
-            <FiZap size={18} />
-          </span>
+          <img
+            src="/logo.png"
+            alt="FitLog Logo"
+            width={32}
+            height={32}
+            className="w-8 h-8 object-contain"
+          />
           <span className="font-display font-bold tracking-widest text-lg">
             FITLOG
           </span>
@@ -69,3 +70,4 @@ export default function Navbar() {
     </header>
   );
 }
+

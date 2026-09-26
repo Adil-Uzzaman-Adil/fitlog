@@ -26,11 +26,10 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Right image */}
+        {/* Right image — your banner */}
         <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-surface border border-border">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80"
+            src="/banner.png"
             alt="Gym workout"
             className="w-full h-full object-cover"
           />

@@ -5,8 +5,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 const FitLogContext = createContext();
 
 export function FitLogProvider({ children }) {
-  const [plan, setPlan] = useState([]);   // [{ ...workout, done: false }]
-  const [saved, setSaved] = useState([]); // [{ ...workout }]
+  const [plan, setPlan] = useState([]);
+  const [saved, setSaved] = useState([]);
   const [hydrated, setHydrated] = useState(false);
 
   // Load from localStorage on mount
@@ -22,7 +22,7 @@ export function FitLogProvider({ children }) {
     setHydrated(true);
   }, []);
 
-  // Save to localStorage on change
+  // Persist
   useEffect(() => {
     if (!hydrated) return;
     localStorage.setItem("fitlog_plan", JSON.stringify(plan));
@@ -56,16 +56,20 @@ export function FitLogProvider({ children }) {
   const toggleSave = (workout) => {
     if (isSaved(workout.id)) {
       setSaved((prev) => prev.filter((w) => w.id !== workout.id));
-      return false; // removed
+      return false;
     }
     setSaved((prev) => [...prev, workout]);
-    return true; // added
+    return true;
   };
 
+  // Metrics — uses caloriesBurned now
   const metrics = {
     exercises: plan.length,
     minutes: plan.reduce((sum, w) => sum + (Number(w.duration) || 0), 0),
-    calories: plan.reduce((sum, w) => sum + (Number(w.calories) || 0), 0),
+    calories: plan.reduce(
+      (sum, w) => sum + (Number(w.caloriesBurned) || 0),
+      0
+    ),
   };
 
   return (

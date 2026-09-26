@@ -5,7 +5,7 @@ export default function SpecsTable({ workout }) {
     ["SETS", workout.sets],
     ["REPS", workout.reps],
     ["DURATION", `${workout.duration} min`],
-    ["CALORIES", `${workout.calories} kcal`],
+    ["CALORIES", `${workout.caloriesBurned} kcal`],
     ["RATING", workout.rating],
   ];
 

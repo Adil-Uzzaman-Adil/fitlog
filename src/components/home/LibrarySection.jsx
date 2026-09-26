@@ -18,8 +18,7 @@ export default function LibrarySection() {
     getAllWorkouts()
       .then((data) => {
         if (!mounted) return;
-        // API may return { workouts: [...] } or an array directly
-        setWorkouts(Array.isArray(data) ? data : data.workouts || []);
+        setWorkouts(Array.isArray(data) ? data : []);
       })
       .catch((e) => mounted && setError(e.message))
       .finally(() => mounted && setLoading(false));
@@ -30,19 +29,22 @@ export default function LibrarySection() {
 
   const filtered = useMemo(() => {
     let list = [...workouts];
+
+    // Search by name, muscleGroups, or equipment
     if (query.trim()) {
       const q = query.toLowerCase();
       list = list.filter(
         (w) =>
           w.name?.toLowerCase().includes(q) ||
-          String(w.category)?.toLowerCase().includes(q)
+          w.muscleGroups?.some((m) => m.toLowerCase().includes(q)) ||
+          w.equipment?.toLowerCase().includes(q)
       );
     }
-    list.sort((a, b) => {
-      const A = Number(a[sortBy]) || 0;
-      const B = Number(b[sortBy]) || 0;
-      return A - B;
-    });
+
+    // Sort — handles the "calories" → "caloriesBurned" mapping
+    const sortKey = sortBy === "calories" ? "caloriesBurned" : sortBy;
+    list.sort((a, b) => (Number(a[sortKey]) || 0) - (Number(b[sortKey]) || 0));
+
     return list;
   }, [workouts, sortBy, query]);
 

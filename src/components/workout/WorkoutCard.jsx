@@ -1,9 +1,12 @@
 import Link from "next/link";
-import Image from "next/image";
 import TagPill from "@/components/ui/TagPill";
 import StatRow from "@/components/ui/StatRow";
 
 export default function WorkoutCard({ workout }) {
+  const categories = Array.isArray(workout.muscleGroups)
+    ? workout.muscleGroups
+    : [];
+
   return (
     <Link
       href={`/workout/${workout.id}`}
@@ -19,10 +22,7 @@ export default function WorkoutCard({ workout }) {
       </div>
       <div className="p-4">
         <div className="flex flex-wrap gap-2 mb-2">
-          {(Array.isArray(workout.category)
-            ? workout.category
-            : [workout.category]
-          ).map((c) => (
+          {categories.map((c) => (
             <TagPill key={c}>{c}</TagPill>
           ))}
         </div>
@@ -32,7 +32,7 @@ export default function WorkoutCard({ workout }) {
         <p className="text-xs text-muted mt-1">{workout.equipment}</p>
         <StatRow
           duration={workout.duration}
-          calories={workout.calories}
+          calories={workout.caloriesBurned}
           rating={workout.rating}
         />
       </div>
