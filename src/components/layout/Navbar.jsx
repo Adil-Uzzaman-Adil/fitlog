@@ -6,7 +6,9 @@ import { useFitLog } from "@/context/FitLogContext";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { plan = [], saved = [] } = useFitLog();
+  const fitLog = useFitLog();
+  const plan = fitLog?.plan || [];
+  const saved = fitLog?.saved || [];
 
   const link = (href, label) => {
     const active = pathname === href;
@@ -29,7 +31,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-2">
           <img
             src="/logo.png"
-            alt="FitLog Logo"
+            alt="FitLog"
             width={32}
             height={32}
             className="w-8 h-8 object-contain"
@@ -39,7 +41,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Nav links */}
+        {/* Desktop links */}
         <nav className="hidden md:flex items-center gap-1">
           {link("/", "Workout")}
           {link("/my-plan", "My Plan")}
