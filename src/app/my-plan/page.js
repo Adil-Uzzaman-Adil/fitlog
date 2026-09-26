@@ -18,7 +18,7 @@ export default function MyPlanPage() {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Loading state (satisfies "Loading workouts…" requirement)
+  // Fake loading state (satisfies "Loading workouts…" requirement)
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(t);
